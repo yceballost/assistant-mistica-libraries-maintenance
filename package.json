@@ -6,12 +6,12 @@
   "sketch": "dist/sketch.js",
   "license": "MIT",
   "sketch-assistant": {
-    "title": "Sketch Assistant Template",
+    "title": "Mistica Linting",
     "description": "Template repository for a starter Assistant project",
     "icon": ""
   },
   "author": {
-    "name": "Your Name or Company Name"
+    "name": "Yayo"
   },
   "keywords": [
     "sketch",

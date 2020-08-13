@@ -1,21 +1,36 @@
-import { AssistantPackage, RuleDefinition } from '@sketch-hq/sketch-assistant-types'
+import {
+  AssistantPackage,
+  RuleDefinition,
+} from '@sketch-hq/sketch-assistant-types'
 
-const helloWorld: RuleDefinition = {
+const textNoLoremIpsum: RuleDefinition = {
   rule: async (context) => {
-    context.utils.report('Hello world')
+    const { utils } = context
+  // Iterate
+  for (const layer of utils.objects.text) {
+    const value = layer.attributedString.string
+    // Test
+    if (value.toLowerCase().includes('lorem ipsum')) {
+      // Report
+      utils.report(`Layer “${layer.name}” contains “lorem ipsum”`, layer)
+    }
+  }
   },
-  name: 'sketch-assistant-template/hello-world',
-  title: 'Hello World',
-  description: 'Reports a hello world message',
+  name: 'sketch-assistant-template/text-no-lorem-ipsum',
+  title: 'Text should not contain lorem ipsum',
+  description:
+    'Reports a violation when text layers contain lorem ipsum placeholder',
 }
 
 const assistant: AssistantPackage = async () => {
   return {
     name: 'sketch-assistant-template',
-    rules: [helloWorld],
+    rules: [textNoLoremIpsum],
     config: {
       rules: {
-        'sketch-assistant-template/hello-world': { active: true },
+        'sketch-assistant-template/text-no-lorem-ipsum': {
+          active: true,
+        },
       },
     },
   }
