@@ -1,39 +1,51 @@
-import {
-  AssistantPackage,
-  RuleDefinition,
-} from '@sketch-hq/sketch-assistant-types'
+import CoreAssistant from '@sketch-hq/sketch-core-assistant'
+import { AssistantPackage } from '@sketch-hq/sketch-assistant-types'
 
-const textNoLoremIpsum: RuleDefinition = {
-  rule: async (context) => {
-    const { utils } = context
-  // Iterate
-  for (const layer of utils.objects.text) {
-    const value = layer.attributedString.string
-    // Test
-    if (value.toLowerCase().includes('lorem ipsum')) {
-      // Report
-      utils.report(`Layer “${layer.name}” contains “lorem ipsum”`, layer)
-    }
-  }
-  },
-  name: 'sketch-assistant-template/text-no-lorem-ipsum',
-  title: 'Text should not contain lorem ipsum',
-  description:
-    'Reports a violation when text layers contain lorem ipsum placeholder',
-}
-
-const assistant: AssistantPackage = async () => {
-  return {
-    name: 'sketch-assistant-template',
-    rules: [textNoLoremIpsum],
-    config: {
-      rules: {
-        'sketch-assistant-template/text-no-lorem-ipsum': {
-          active: true,
+const assistant: AssistantPackage = [
+  CoreAssistant,
+  async () => {
+    return {
+      name: 'mistica-libraries-maintenance',
+      rules: [],
+      config: {
+        rules: {
+          '@sketch-hq/sketch-core-assistant/library-symbols-allowed-libraries': {
+            "active": true,
+            "libraries": ["Android_Novum_Library", "iOS_Novum_Library", "Movistar_Brand_Library"]
+          },
+          '@sketch-hq/sketch-core-assistant/text-styles-no-dirty': {
+            "active": true,
+          },
+          '@sketch-hq/sketch-core-assistant/fills-no-disabled': {
+            "active": true,
+          },
+          '@sketch-hq/sketch-core-assistant/borders-no-disabled': {
+            "active": true,
+          },
+          '@sketch-hq/sketch-core-assistant/inner-shadows-no-disabled': {
+            "active": true,
+          },
+          '@sketch-hq/sketch-core-assistant/shadows-no-disabled': {
+            "active": true,
+          },
+          '@sketch-hq/sketch-core-assistant/library-layer-styles-allowed-libraries': {
+            "active": true,
+            "libraries": ["Movistar_Brand_Library"]
+          },
+          '@sketch-hq/sketch-core-assistant/library-text-styles-allowed-libraries': {
+            "active": true,
+            "libraries": ["Movistar_Brand_Library"]
+          },
+          '@sketch-hq/sketch-core-assistant/layers-no-hidden': {
+            "active": true,
+          },
+          '@sketch-hq/sketch-core-assistant/symbols-no-detached': {
+            "active": true,
+          },
         },
       },
-    },
-  }
-}
+    }
+  },
+]
 
 export default assistant

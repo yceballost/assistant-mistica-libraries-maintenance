@@ -1,14 +1,14 @@
 {
-  "name": "sketch-assistant-template",
-  "homepage": "https://github.com/sketch-hq/sketch-assistant-template",
+  "name": "mistica-libraries-maintenance",
+  "homepage": "https://github.com/yceballost/assistant-mistica-libraries-maintenance",
   "version": "1.0.0",
   "main": "dist/index.js",
   "sketch": "dist/sketch.js",
   "license": "MIT",
   "sketch-assistant": {
-    "title": "Mistica Linting",
-    "description": "Template repository for a starter Assistant project",
-    "icon": ""
+    "title": "Mística Libraries Maintenance",
+    "description": "Assistant to keep libraries shimmered.",
+    "icon": "https://i.ibb.co/ByfZyh3/logo.png"
   },
   "author": {
     "name": "Yayo"
@@ -44,6 +44,7 @@
     "webpack-cli": "3.3.12"
   },
   "dependencies": {
-    "@sketch-hq/sketch-assistant-types": "6.0.0"
+    "@sketch-hq/sketch-assistant-types": "6.0.0",
+    "@sketch-hq/sketch-core-assistant": "^6.1.0"
   }
 }
