@@ -1,7 +1,7 @@
 {
   "name": "mistica-libraries-maintenance",
   "homepage": "https://github.com/yceballost/assistant-mistica-libraries-maintenance",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "main": "dist/index.js",
   "sketch": "dist/sketch.js",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "icon": "https://i.ibb.co/ByfZyh3/logo.png"
   },
   "author": {
-    "name": "Yayo"
+    "name": "yceballost"
   },
   "keywords": [
     "sketch",
@@ -45,6 +45,6 @@
   },
   "dependencies": {
     "@sketch-hq/sketch-assistant-types": "6.0.0",
-    "@sketch-hq/sketch-core-assistant": "^6.1.0"
+    "@sketch-hq/sketch-core-assistant": "^6.2.0"
   }
 }
